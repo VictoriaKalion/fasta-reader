@@ -1,1 +1,219 @@
+<!DOCTYPE html>
 
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>FASTA Reader Documentation &#8212; FASTA Reader 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinxdoc.css?v=34905f61" />
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">FASTA Reader 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FASTA Reader Documentation</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-fasta_reader">
+<span id="fasta-reader-documentation"></span><h1>FASTA Reader Documentation<a class="headerlink" href="#module-fasta_reader" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="fasta_reader.FastaReader">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fasta_reader.</span></span><span class="sig-name descname"><span class="pre">FastaReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fasta_reader.html#FastaReader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fasta_reader.FastaReader" title="Link to this definition">¶</a></dt>
+<dd><p>Класс для чтения и валидации FASTA файлов.</p>
+<p>Использует генераторы для эффективной работы с большими файлами :cite[1]:cite[4].</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fasta_reader.FastaReader.is_valid_fasta">
+<span class="sig-name descname"><span class="pre">is_valid_fasta</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fasta_reader.html#FastaReader.is_valid_fasta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fasta_reader.FastaReader.is_valid_fasta" title="Link to this definition">¶</a></dt>
+<dd><p>Проверяет базовое соответствие файла формату FASTA.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>bool: True если файл валидный, иначе False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fasta_reader.FastaReader.read_sequences">
+<span class="sig-name descname"><span class="pre">read_sequences</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fasta_reader.html#FastaReader.read_sequences"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fasta_reader.FastaReader.read_sequences" title="Link to this definition">¶</a></dt>
+<dd><p>Генератор, который читает файл и возвращает последовательности одну за другой.</p>
+<dl class="simple">
+<dt>Yields:</dt><dd><p>Seq: объекты последовательности</p>
+</dd>
+<dt>Raises:</dt><dd><p>ValueError: если файл не соответствует формату FASTA</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fasta_reader.Seq">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fasta_reader.</span></span><span class="sig-name descname"><span class="pre">Seq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sequence</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fasta_reader.html#Seq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fasta_reader.Seq" title="Link to this definition">¶</a></dt>
+<dd><p>Класс для работы с биологическими последовательностями.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>header (str): заголовок FASTA записи
+sequence (str): биологическая последовательность</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="fasta_reader.Seq.get_alphabet">
+<span class="sig-name descname"><span class="pre">get_alphabet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fasta_reader.html#Seq.get_alphabet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fasta_reader.Seq.get_alphabet" title="Link to this definition">¶</a></dt>
+<dd><p>Определяет тип последовательности (нуклеотидная или белковая).</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>str: ‘nucleotide’, ‘protein’ или ‘unknown’</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="id0">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fasta_reader.</span></span><span class="sig-name descname"><span class="pre">Seq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sequence</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fasta_reader.html#Seq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
+<dd><p>Класс для работы с биологическими последовательностями.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>header (str): заголовок FASTA записи
+sequence (str): биологическая последовательность</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">get_alphabet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fasta_reader.html#Seq.get_alphabet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
+<dd><p>Определяет тип последовательности (нуклеотидная или белковая).</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>str: ‘nucleotide’, ‘protein’ или ‘unknown’</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="id2">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fasta_reader.</span></span><span class="sig-name descname"><span class="pre">FastaReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fasta_reader.html#FastaReader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
+<dd><p>Класс для чтения и валидации FASTA файлов.</p>
+<p>Использует генераторы для эффективной работы с большими файлами :cite[1]:cite[4].</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">is_valid_fasta</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fasta_reader.html#FastaReader.is_valid_fasta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
+<dd><p>Проверяет базовое соответствие файла формату FASTA.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>bool: True если файл валидный, иначе False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">read_sequences</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fasta_reader.html#FastaReader.read_sequences"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
+<dd><p>Генератор, который читает файл и возвращает последовательности одну за другой.</p>
+<dl class="simple">
+<dt>Yields:</dt><dd><p>Seq: объекты последовательности</p>
+</dd>
+<dt>Raises:</dt><dd><p>ValueError: если файл не соответствует формату FASTA</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="#">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">FASTA Reader Documentation</a><ul>
+<li><a class="reference internal" href="#fasta_reader.FastaReader"><code class="docutils literal notranslate"><span class="pre">FastaReader</span></code></a><ul>
+<li><a class="reference internal" href="#fasta_reader.FastaReader.is_valid_fasta"><code class="docutils literal notranslate"><span class="pre">FastaReader.is_valid_fasta()</span></code></a></li>
+<li><a class="reference internal" href="#fasta_reader.FastaReader.read_sequences"><code class="docutils literal notranslate"><span class="pre">FastaReader.read_sequences()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fasta_reader.Seq"><code class="docutils literal notranslate"><span class="pre">Seq</span></code></a><ul>
+<li><a class="reference internal" href="#fasta_reader.Seq.get_alphabet"><code class="docutils literal notranslate"><span class="pre">Seq.get_alphabet()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#classes">Classes</a><ul>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">Seq</span></code></a><ul>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">Seq.get_alphabet()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">FastaReader</span></code></a><ul>
+<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">FastaReader.is_valid_fasta()</span></code></a></li>
+<li><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">FastaReader.read_sequences()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">FASTA Reader 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FASTA Reader Documentation</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 05.10.2025, Victoria.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>
